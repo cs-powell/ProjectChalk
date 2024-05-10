@@ -1,0 +1,340 @@
+@font-face {
+    font-family: "Plata Sans";
+    src: url("./assets/fonts/PlataSans-BlackItalic.ttf");
+  }
+
+body {
+    animation: grow 2s;
+    /* background-color: rgb(30, 4, 30); */
+    background-image: linear-gradient(to right, black 50%,purple 65%, aliceblue 70%);
+    background-repeat: no-repeat;
+    margin-left:2%;
+margin-right:2%;
+margin-bottom:2%;
+    
+  }
+  
+  @keyframes grow {
+      0% { 
+        transform: scale(.5);
+        opacity: 0; 
+    }
+    80% { 
+        transform: scale(1);
+        opacity: 0.5; }
+    100% { 
+      
+        opacity: 1; }
+  }
+  
+
+  .imagecarousel {
+    z-index: 1;
+    position: relative;
+    height: 233px;
+    margin-bottom: 30px;
+    display: flex;
+    width: fit-content;
+    gap: 20px;
+  }
+  
+  .imagecarousel img {
+    margin: 0px 0px;
+    box-shadow: 2px 2px 8px #8a8a8a;
+  }
+  
+  .imagecarousel {
+    order: 2;
+    animation: bannermove 20s linear infinite;
+  }
+  
+  @keyframes bannermove {
+    0% {
+      transform: translateX(0);
+    }
+
+    50%{
+        transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+
+
+
+
+.banner {
+    border: inherit;
+    background-image: url('./assets/header.jpeg');
+    background-position: 0px -100px;
+    background-repeat:repeat-x;
+    width: 100%;
+    height: 200px;
+    /* height: 0;
+    padding-top: 500%; (img-height / img-width * container-width) */
+    text-align: center;
+}
+
+.banner h1 {
+    background-image: linear-gradient(to right, transparent 30%,aliceblue 50%, transparent 70%);
+    font-size: 60px;
+}
+
+.underbanner {
+    margin: 0px;
+    background-color: black;
+    text-align: center;
+}
+
+.underbanner h1 {
+    margin: 0px;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.section-header {
+    /* font-family: fantasy; */
+    font-family: monospace;
+    font-size: 50px;
+    color:white;
+}
+
+
+
+.stack {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    color: white;
+  }
+  
+  .stack span {
+    font-family: "Plata Sans", sans-serif;
+    -webkit-text-stroke-width: 6px;
+    -webkit-text-stroke-color: #62e8d6;
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    /* font-size: 4rem; */
+    font-size: 100px;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 1s ease infinite 1s alternate-reverse;
+  }
+  
+  .stack span:nth-child(odd) { --glitch-translate: 8px; }
+  .stack span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    };
+    60% {
+      opacity: 0.5;
+      transform: translateX(50%);
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+      transform: translate(var(--glitch-translate));
+    }
+    2% {
+      text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+    4%, 100% {  text-shadow: none; transform: none; }
+  }
+
+
+
+
+.button-banner {
+    text-align: right;
+}
+
+
+
+ button {
+    background-color: #f10000; 
+    border: solid;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    font-family:monospace;
+    transition-duration: 0.4s;
+    border-color: white;
+    border-width: 4px;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: #04AA6D; /* Green */
+    color: white;
+ }
+
+ .main-block {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    
+ }
+
+ /* .left-block {
+
+
+ } */
+
+ .left-block h1 {
+    margin-left: 1em;
+    text-decoration: underline;
+    text-decoration-color: #762631;
+
+ }
+
+ .left-block .imagecarousel {
+    margin-left: 3em;
+    height: 500px;
+
+ }
+
+ .left-block p {
+   font-size: 30px;
+   margin-left:4em;
+   color: white;
+   font-family: monospace;
+   margin-right: 2em;
+
+ }
+
+ .right-block {
+    backdrop-filter: blur(7.7px);
+    background-color: transparent 0.5%;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: max-content;
+    height: max-content;
+    width: 100%;
+ }
+
+ /* .bio{
+
+    background-image: url(./assets/bio.jpeg);
+ } */
+
+ #bio-image{
+    shape-outside: margin-box;
+    float: right;
+
+    margin-left: 10px;
+    margin-right: 100px;
+
+ }
+
+
+
+
+
+
+
+
+ .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  /* .mySlides {
+    display: none;
+  } */
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
