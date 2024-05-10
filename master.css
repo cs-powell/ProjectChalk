@@ -3,6 +3,9 @@
     src: url("./assets/fonts/PlataSans-BlackItalic.ttf");
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
 body {
     animation: grow 2s;
     /* background-color: rgb(30, 4, 30); */
@@ -11,13 +14,22 @@ body {
     margin-left:2%;
 margin-right:2%;
 margin-bottom:2%;
+overflow-x:scroll;
+text-align: left;
+    
+  }
+
+
+  body h1{
+
+text-align: left;
     
   }
   
   @keyframes grow {
       0% { 
         transform: scale(.5);
-        opacity: 0; 
+        opacity: 0;
     }
     80% { 
         transform: scale(1);
@@ -28,6 +40,11 @@ margin-bottom:2%;
   }
   
 
+  .imagecarousel-wrapper {
+    overflow-x: hidden;
+    width: 130%;
+  }
+
   .imagecarousel {
     z-index: 1;
     position: relative;
@@ -36,6 +53,9 @@ margin-bottom:2%;
     display: flex;
     width: fit-content;
     gap: 20px;
+    vertical-align: middle;
+    /* border:red;
+    border-style: solid; */
   }
   
   .imagecarousel img {
@@ -44,7 +64,6 @@ margin-bottom:2%;
   }
   
   .imagecarousel {
-    order: 2;
     animation: bannermove 20s linear infinite;
   }
   
@@ -53,9 +72,10 @@ margin-bottom:2%;
       transform: translateX(0);
     }
 
-    50%{
-        transform: translateX(-50%);
+    50% {
+        transform: translateX(-100%);
     }
+
     100% {
       transform: translateX(0%);
     }
@@ -64,8 +84,8 @@ margin-bottom:2%;
 
 
 
-
 .banner {
+    z-index: 3;
     border: inherit;
     background-image: url('./assets/header.jpeg');
     background-position: 0px -100px;
@@ -133,12 +153,12 @@ margin-bottom:2%;
   @keyframes stack {
     0% {
       opacity: 0;
-      transform: translateX(-50%);
+      transform: translateX(-70%);
       text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
     };
     60% {
       opacity: 0.5;
-      transform: translateX(50%);
+      transform: translateX(70%);
     }
     80% {
       transform: none;
@@ -170,6 +190,51 @@ margin-bottom:2%;
 
 
 
+.bannerbox{
+    display: flex;
+  }
+
+  .sticky-banner{
+    text-align: left;
+    z-index:10;
+    position: sticky;
+    top: 0;
+    background-image: linear-gradient(to right, black 50%,purple 65%, aliceblue 70%); ;
+  }
+
+  .sticky-banner .button-banner {
+    text-align: center;
+  }
+
+  .sticky-banner .button-banner .right-button {
+    font-size: 25px;
+  }
+  
+  #banner0{
+    display:inline-block;
+    width: 100%;
+    
+  }
+
+  #banner1{
+    text-align: left;
+    width: 60%;
+    /* position: -webkit-sticky; Safari */
+    position: sticky;
+    top: 0;
+    background-image: url(./assets/bio3.jpeg);
+    background-size: contain;
+    box-shadow: 0 0 30px 20px black inset;
+    height:auto;
+    border-radius: 20px;
+  }
+
+  #banner2{
+    width: 40%;
+  }
+
+
+
  button {
     background-color: #f10000; 
     border: solid;
@@ -196,10 +261,10 @@ button:hover {
     
  }
 
- /* .left-block {
+ .left-block {
+text-align: left;
 
-
- } */
+ }
 
  .left-block h1 {
     margin-left: 1em;
@@ -261,9 +326,9 @@ button:hover {
   }
   
   /* Hide the images by default */
-  /* .mySlides {
-    display: none;
-  } */
+  .mySlides {
+    display: contents;
+  }
   
   /* Next & previous buttons */
   .prev, .next {
@@ -338,3 +403,8 @@ button:hover {
     from {opacity: .4}
     to {opacity: 1}
   }
+
+  figcaption{
+    color: white;
+  }
+
